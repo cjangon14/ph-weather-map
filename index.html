@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>RescuePH — Real-Time Hazard Monitoring</title>
+
+  <!-- Leaflet CSS -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" crossorigin=""/>
+
+  <!-- App styles -->
+  <link rel="stylesheet" href="styles.css" />
+
+  <style>
+    /* quick safety to ensure autocomplete dropdown sits above map tiles */
+    .suggestions { position: absolute; z-index: 10002; max-height: 280px; overflow:auto; }
+  </style>
+</head>
+<body>
+
+  <!-- NEW: SIDE ICON DOCK -->
+  <div id="sideDock">
+    <button id="btnHazards" class="dock-btn">🌋</button>
+    <button id="btnWeather" class="dock-btn">🌦</button>
+  </div>
+
+  <!-- NEW: DRAWER PANEL (CONTENT WILL COME LATER) -->
+  <div id="drawerPanel">
+    <div id="drawerContent">
+      <!-- panel content goes here later -->
+    </div>
+  </div>
+
+  <header class="app-header">
+    <div class="header-content">
+      <div class="title-wrap">
+        <h1>RescuePH</h1>
+        <span class="subtitle">Real-Time Hazard Monitoring</span>
+      </div>
+      <div class="controls">
+        <div style="position:relative;">
+          <input id="citySearch" class="search" placeholder="Search city or municipality..." autocomplete="off" />
+          <div id="suggestions" class="suggestions hidden"></div>
+        </div>
+
+        <button id="clearBtn">Clear</button>
+      </div>
+    </div>
+  </header>
+
+
+  <div id="map"></div>
+
+  <div id="loading" class="loading hidden">
+    <div class="spinner"></div>
+    <div id="loadingText">Loading weather...</div>
+  </div>
+
+  <!-- Leaflet JS -->
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" crossorigin=""></script>
+
+  <!-- App script -->
+  <script src="script.js"></script>
+
+</body>
+</html>
